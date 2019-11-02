@@ -8,6 +8,8 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Slider,
+  Button,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -27,6 +29,7 @@ export default function HomeScreen() {
             }
             style={styles.welcomeImage}
           />
+
         </View>
 
         <View style={styles.getStartedContainer}>
@@ -40,7 +43,7 @@ export default function HomeScreen() {
           </View>
 
           <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
+            ya ya yeet
           </Text>
         </View>
 
@@ -194,5 +197,10 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  readyText: {
+    fontSize: 20,
+    color: '#2e78b7',
+    paddingVertical: 15,
   },
 });
