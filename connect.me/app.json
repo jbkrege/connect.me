@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "y",
-    "slug": "connect.me",
+    "name": "connect.me",
+    "slug": "connectme",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
