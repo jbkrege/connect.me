@@ -38,23 +38,18 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.tileContainer}>
-        
-        <SquareGrid rows={2} columns={3} items={catagories} renderItem={{renderItem = (item) => {
-           return (
-              <Tile
-                title = { item }
-                imageSrc = { require('../assets/images/sax.jpg') }
-                featured
-              />
-            );}}}/>
+
+        <Tile
+          title = "Music"
+          imageSrc = { require('../assets/images/jazz.jpg') }
+          featured = { true }
+        />
+
       </View>
 
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-
-
-   
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
