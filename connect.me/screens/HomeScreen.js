@@ -12,45 +12,49 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
+import { Tile } from '../node_modules/react-native-elements';
+
+// 
+// https://reactnativeexample.com/a-component-for-rendering-a-grid-of-squares-that-perfectly-fill-your-space/
+// 
+import { SquareGrid } from "../node_modules/react-native-square-grid";
+
 export default function HomeScreen() {
+
+  var catagories = [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six"
+  ];
+
   return (
     <View style={styles.container}>
+
+      <View style={styles.welcomeContainer}>
+        <Text>Welcome to connect.me!!! Help us help you by selecting some of your interests</Text>
+      </View>
+
+      <View style={styles.tileContainer}>
+        
+        <SquareGrid rows={2} columns={3} items={catagories} renderItem={{renderItem = (item) => {
+           return (
+              <Tile
+                title = { item }
+                imageSrc = { require('../assets/images/sax.jpg') }
+                featured
+              />
+            );}}}/>
+      </View>
+
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
 
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text>
-        </View>
-
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
-        </View>
+   
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
@@ -73,28 +77,6 @@ HomeScreen.navigationOptions = {
   header: null,
 };
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
 
 function handleLearnMorePress() {
   WebBrowser.openBrowserAsync(
@@ -113,6 +95,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
@@ -125,8 +111,12 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+    paddingTop: 60,
+    paddingBottom: 30,
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: "green",
+    color: 'rgba(96,100,109, 0.8)',
   },
   welcomeImage: {
     width: 100,
